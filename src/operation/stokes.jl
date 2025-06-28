@@ -3,7 +3,7 @@ module Stokes
 using ..ApproxOperator: AbstractElement
 
 #===== 粘性项算子：μ∫2∇u:∇v dΩ → 对应矩阵 A =====#
-function ∫∫μ∇u∇vdxdy(aᵤ::T; k::AbstractMatrix{Float64}) where T<:AbstractElement
+function ∫∫μ∇u∇vdxdy(aᵤ::T,k::AbstractMatrix{Float64}) where T<:AbstractElement
     𝓒 = aᵤ.𝓒; 𝓖 = aᵤ.𝓖
     for ξ in 𝓖
         B₁ = ξ[:∂𝝭∂x]  # 速度形函数 x 导数
